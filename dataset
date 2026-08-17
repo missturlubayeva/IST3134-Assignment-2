@@ -1,0 +1,10 @@
+#dataset link 
+#https://www.kaggle.com/datasets/rodolfofigueroa/spotify-12m-songs
+
+import pandas as pd
+
+df = pd.read_csv("tracks_features.csv")
+df_big = pd.concat([df] * 3, ignore_index=True)
+df_big.to_csv("tracks_features_12m.csv", index=False)
+print(len(df_big))
+df_big["record_id"] = range(len(df_big))
